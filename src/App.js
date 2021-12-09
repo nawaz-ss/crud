@@ -133,26 +133,9 @@ class App extends Component {
       errors["name"] = "Cannot be empty";
     }
 
-    if (typeof name !== "undefined") {
-      if (name.length > 1) {
-        let wordsArray = name.split(" ")
-        console.log(name)
-        console.log(wordsArray)
-        wordsArray.map(word => {
-          if (!word.match(/^[a-zA-Z]+$/)) {
-            console.log(word)
-            formIsValid = false;
-            errors["name"] = "Only letters";
-          }
-        })
-      }
-      else {
-        if (!name.match(/^[a-zA-Z]+$/)) {
-          formIsValid = false;
-          errors["name"] = "Only letters";
-        }
-      }
-
+    if (!name.trim().match(/^[a-zA-Z]+$/)) {
+      formIsValid = false;
+      errors["name"] = "Only letters";
     }
 
     //Email
