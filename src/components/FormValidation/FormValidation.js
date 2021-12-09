@@ -163,12 +163,12 @@ class Test extends Component {
                                 value={this.state.fields["address"]}
                             />
                             <br />
-                            <button data-tip data-for="registerTip" type="submit">
+                            <Button data-tip data-for="registerTip" type="submit">
                                 Register
-                            </button>
+                            </Button>
 
                             <ReactTooltip id="registerTip" place="top" effect="solid" type="warning">
-                                Tooltip for the register button
+                                Tooltip for the register Button
                             </ReactTooltip>
                         </fieldset>
                     </div>

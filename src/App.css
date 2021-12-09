@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+.users-coontainer{
+  height: 100vh;
+  max-height: 100vh;
+  overflow: auto;
+  background-color: wheat;
+  padding: 1rem;
+}
+
+.input-container{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input-label{
+  color: #282c34;
+  font-size: 14px;
+}
+
+.user-input{
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 4px 12px;
+}
+
+.error-text{
+  color: red;
+  font-size: 12px;
+  margin: 0;
+}
