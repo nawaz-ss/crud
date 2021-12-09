@@ -21,13 +21,15 @@ class App extends Component {
   }
 
   getData() {
+    console.log('get data called')
     this.Apis.getUser().then(
       (res: AxiosResponse) => {
         var data = res.data
         console.log(data)
         this.setState({
           users: data,
-          message : 'get data'
+          name: '',
+          contactNo: ''
         });
       }
     ).catch(
@@ -38,21 +40,24 @@ class App extends Component {
   }
 
   addData(newUser) {
-    axios.post(url, newUser)
-      .then(function (response) {
-        console.log(response);
-        this.setState({message :'user Added'})
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    axios.post(url, newUser).
+    then(
+      (res: AxiosResponse) => {
+        console.log('Added  Successfully')
+        this.getData()
+      }
+    ).catch(
+      (err: AxiosError) => {
+        console.log(err)
+      }
+    )
   }
 
   deleteData(user) {
     this.Apis.deleteUser(user.id).then(
       (res: AxiosResponse) => {
         console.log('User deleted Successfully')
-        this.setState({message :'user Deleted'})
+        this.getData()
       }
     ).catch(
       (err: AxiosError) => {
@@ -117,6 +122,7 @@ class App extends Component {
               <ul key={id}>
                 <li>{`Name : ${el.name}`}</li>
                 <li>{`Contact No  : ${el.contactNo}`}</li>
+                <li>{`Avatar url  : ${el.avatar}`}</li>
                 <li>{`id : ${el.id}`}</li>
                 <li><button onClick={(e) => this.deleteData(el)}>Delete</button></li>
               </ul>
