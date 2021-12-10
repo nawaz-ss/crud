@@ -53,6 +53,9 @@ class UserModal extends Component {
         if (!userName) {
           formIsValid = false;
           errors["name"] = "Cannot be empty";
+        }else if (userName.length<3){
+          formIsValid= false;
+          errors["name"] = "Min 3 characters required";
         }
         
         //Email

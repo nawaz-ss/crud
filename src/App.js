@@ -14,7 +14,7 @@ class App extends Component {
 
   Apis = new Apis()
   state = {
-    avatar: 'https://espotz-dev-assets.s3.ap-south-1.amazonaws.com/images/1f34bc30-5333-11ec-b397-3ddde82f00ca',
+    avatar: 'https://espotz-dev-assets.s3.ap-south-1.amazonaws.com/images/b29ad680-59b4-11ec-90b9-5d6ba013a909',//'https://espotz-dev-assets.s3.ap-south-1.amazonaws.com/images/1f34bc30-5333-11ec-b397-3ddde82f00ca',
     name: '',
     contactNo: '',
     email: '',
@@ -45,7 +45,7 @@ class App extends Component {
     this.Apis.getUser().then(
       (res: AxiosResponse) => {
         var data = res.data
-        this.setState({users: data})
+        this.setState({ users: data })
         this.onReset()
       }
     ).catch(
@@ -131,9 +131,6 @@ class App extends Component {
     if (!name) {
       formIsValid = false;
       errors["name"] = "Cannot be empty";
-    }else if (!name.trim().match(/^[a-zA-Z]+$/)) {
-      formIsValid = false;
-      errors["name"] = "Only letters";
     }
 
     //Email
@@ -278,7 +275,6 @@ class App extends Component {
           </Modal.Body>
         </Modal>
       </>
-
     )
   }
 }
