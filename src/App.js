@@ -131,9 +131,7 @@ class App extends Component {
     if (!name) {
       formIsValid = false;
       errors["name"] = "Cannot be empty";
-    }
-
-    if (!name.trim().match(/^[a-zA-Z]+$/)) {
+    }else if (!name.trim().match(/^[a-zA-Z]+$/)) {
       formIsValid = false;
       errors["name"] = "Only letters";
     }
